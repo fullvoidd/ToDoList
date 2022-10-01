@@ -1,0 +1,4 @@
+spring.datasource.url: jdbc:mysql://localhost:3306/todolist?useUnicode=true&characterEncoding=utf8
+spring.datasource.username: root
+spring.datasource.password: RkGFKx5r4K
+spring.jpa.hibernate.ddl-auto: create
