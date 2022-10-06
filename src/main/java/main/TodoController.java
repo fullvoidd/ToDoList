@@ -57,7 +57,7 @@ public class TodoController {
     }
 
     @PutMapping("/todos/id/{id}")
-    public void putTodo(Todo todo, @PathVariable int id) {
+    public void putTodo(@PathVariable int id, Todo todo) {
         todoRepository.deleteById(id);
         todoRepository.save(todo);
     }
@@ -68,10 +68,10 @@ public class TodoController {
     }
 
     @GetMapping("/todos/date/{date}")
-    public ResponseEntity getTodoOnDate(@PathVariable Date date) {
+    public ResponseEntity getTodoOnDate(@PathVariable String date) {
         Todo todo = null;
         for (Todo nextTodo : todoRepository.findAll()) {
-            if (nextTodo.getDate().equals(date)) {
+            if (nextTodo.getDate().toString().equals(date)) {
                 todo = nextTodo;
                 break;
             }
@@ -83,9 +83,9 @@ public class TodoController {
     }
 
     @PutMapping("/todos/date/{date}")
-    public void putTodoOnDate(Todo todo, @PathVariable Date date) {
+    public void putTodoOnDate(Todo todo, @PathVariable String date) {
         for (Todo nextTodo : todoRepository.findAll()) {
-            if (nextTodo.getDate().equals(date)) {
+            if (nextTodo.getDate().toString().equals(date)) {
                 todoRepository.deleteById(nextTodo.getId());
                 todoRepository.save(todo);
                 break;
@@ -94,9 +94,9 @@ public class TodoController {
     }
 
     @DeleteMapping("/todos/date/{date}")
-    public void deleteTodoOnDate(@PathVariable Date date) {
+    public void deleteTodoOnDate(@PathVariable String date) {
         for (Todo nextTodo : todoRepository.findAll()) {
-            if (nextTodo.getDate().equals(date)) {
+            if (nextTodo.getDate().toString().equals(date)) {
                 todoRepository.deleteById(nextTodo.getId());
                 break;
             }
