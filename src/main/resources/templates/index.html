@@ -8,10 +8,15 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <h1>Список дел (<span th:text="${todoCount}">0</span>)</h1>
+    <h1>Список дел (<span th:text="${todoCount}"></span>)</h1>
     <div id="todo-list">
         <div th:each="todo : ${todos}">
             <a href="#" class="todo-link" th:attr="data-id=${todo.id}" th:text="${todo.name}"></a>
+            <br>
+            <span th:text="${todo.description}"></span>
+            <br>
+            <span th:text="${todo.date}"></span>
+            <br>
         </div>
     </div>
 </body>

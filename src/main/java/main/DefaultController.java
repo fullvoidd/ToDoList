@@ -23,6 +23,7 @@ public class DefaultController {
             todos.add(todo);
         }
         model.addAttribute("todos", todos);
+        model.addAttribute("todoCount", todos.size());
         return "index";
     }
 }
