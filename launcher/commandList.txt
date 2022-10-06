@@ -1,0 +1,32 @@
+GET http://localhost:8080/todos/
+Возвращает список дел и выводит его на странице.
+
+POST http://localhost:8080/todos/?name=shopping&description=changed&date=2022-04-15 15:51:35
+name=shopping - название дела.
+description=changed - статус дела.
+date=2022-04-15 15:51:35 - дата дела (формат даты - yyyy-MM-dd HH:mm).
+Добавляет дело в список дел.
+
+PUT http://localhost:8080/todos/
+Добавляет список дел.
+
+DELETE http://localhost:8080/todos/
+Очищает весь список.
+
+GET http://localhost:8080/todos/id/{id}
+Получает дело по его id.
+
+PUT http://localhost:8080/todos/id/{id}?name=cocking&description=changed&date=2022-04-15 15:51:35
+Заменяет дело по его id.
+
+DELETE http://localhost:8080/todos/id/{id}
+Удаляет дело по его id.
+
+GET http://localhost:8080/todos/date/{date}
+Находит дело на конкретную дату.
+
+PUT http://localhost:8080/todos/date/{date}
+Заменяет дело на конкретную дату.
+
+DELETE http://localhost:8080/todos/date/{date}
+Удаляет дело на конкретную дату.
